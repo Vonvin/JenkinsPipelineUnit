@@ -11,7 +11,7 @@ class LibraryRecord {
 
     Map<String, Object> definedGlobalVars
 
-    LibraryRecord(LibraryConfiguration configuration, String version, List<String> rootPaths, Boolean resolve) {
+    LibraryRecord(LibraryConfiguration configuration, String version, List<String> rootPaths, Boolean resolve = true) {
         this.configuration = configuration
         this.version = version
         this.rootPaths = rootPaths
