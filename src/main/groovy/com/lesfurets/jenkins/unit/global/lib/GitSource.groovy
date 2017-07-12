@@ -12,7 +12,7 @@ class GitSource implements SourceRetriever {
     String sourceURL
 
     @Override
-    List<URL> retrieve(String repository, String branch, String targetPath) throws IllegalStateException {
+    List<URL> retrieve(String repository, String branch, String targetPath, Boolean resolve) throws IllegalStateException {
         File target = new File(targetPath)
         def fetch = target.toPath().resolve("$repository@$branch").toFile()
         if (fetch.exists()) {

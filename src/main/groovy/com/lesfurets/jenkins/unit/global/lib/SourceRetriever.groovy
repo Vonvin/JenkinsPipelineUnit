@@ -7,6 +7,6 @@ interface SourceRetriever {
 
     public static final int CLONE_TIMEOUT = 10
 
-    List<URL> retrieve(String repository, String branch, String targetPath) throws IllegalStateException
+    List<URL> retrieve(String repository, String branch, String targetPath, Boolean resolve) throws IllegalStateException
 
 }

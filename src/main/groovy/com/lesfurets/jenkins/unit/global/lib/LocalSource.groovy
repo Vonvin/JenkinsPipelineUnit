@@ -10,8 +10,12 @@ class LocalSource implements SourceRetriever {
     String sourceURL
 
     @Override
-    List<URL> retrieve(String repository, String branch, String targetPath) {
-        def sourceDir = new File(sourceURL).toPath().resolve("$repository@$branch").toFile()
+    List<URL> retrieve(String repository, String branch, String targetPath, Boolean resolve) {
+
+        def sourceDir = new File(sourceURL).toPath().toFile()
+        if (resolve) {
+            sourceDir = new File(sourceURL).toPath().resolve("$repository@$branch").toFile()
+        }
         if (sourceDir.exists()) {
             return [sourceDir.toURI().toURL()]
         }

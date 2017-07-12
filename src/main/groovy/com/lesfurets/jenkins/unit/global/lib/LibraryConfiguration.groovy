@@ -16,6 +16,7 @@ class LibraryConfiguration {
     boolean implicit = false
     boolean allowOverride = true
     String targetPath
+    Boolean resolve = true
 
     LibraryConfiguration validate() {
         if (name && defaultVersion && retriever && targetPath)

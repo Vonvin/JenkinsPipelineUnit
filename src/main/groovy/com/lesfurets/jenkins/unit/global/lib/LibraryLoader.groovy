@@ -72,7 +72,7 @@ class LibraryLoader {
     private void doLoadLibrary(LibraryConfiguration library, String version = null) throws Exception {
         println "Loading shared library ${library.name} with version ${version ?: library.defaultVersion}"
         try {
-            def urls = library.retriever.retrieve(library.name, version ?: library.defaultVersion, library.targetPath)
+            def urls = library.retriever.retrieve(library.name, version ?: library.defaultVersion, library.targetPath, library.resolve)
             def record = new LibraryRecord(library, version ?: library.defaultVersion, urls.path)
             libRecords.put(record.getIdentifier(), record)
             def globalVars = [:]
